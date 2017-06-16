@@ -2,6 +2,7 @@ package com.fangming.phoneshopping;
 
 
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.widget.ImageButton;
 
 import com.baidu.location.BDLocation;
@@ -13,6 +14,7 @@ import com.fangming.phoneshopping.Activity.SearchActivity;
 import com.fangming.phoneshopping.Base.BaseMapActivity;
 import com.fangming.phoneshopping.Dagger.Component.DaggerMainComponent;
 import com.fangming.phoneshopping.Dagger.Module.MainModule;
+import com.kogitune.activity_transition.ActivityTransitionLauncher;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -34,6 +36,8 @@ public class MainActivity extends BaseMapActivity {
     @Inject
     MyLocationData.Builder builder;
 
+    @BindView(R.id.activity_main_cvSearch)
+    CardView cv_search;
     @BindView(R.id.activity_main_ibMenu)
     ImageButton ib_menu;
 
@@ -49,7 +53,8 @@ public class MainActivity extends BaseMapActivity {
 
     @OnClick(R.id.activity_main_btnSearch)
     void onClick() {
-        startActivity(new Intent(this, SearchActivity.class));
+        Intent intent = new Intent(this,SearchActivity.class);
+        ActivityTransitionLauncher.with(MainActivity.this).from(cv_search).launch(intent);
     }
 
     @OnClick(R.id.activity_main_ibMenu)
