@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:clipChildren="false"
+             android:orientation="vertical"
+             tools:context="com.fangming.phoneshopping.MainActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/white"
+                android:drawableLeft="@mipmap/icon_search"
+                android:drawablePadding="8dp"
+                android:enabled="false"
+                android:hint="请输入搜索内容"
+                android:maxLines="1"
+                android:paddingLeft="8dp"/>
+
+            <ImageButton
+                android:id="@+id/activity_main_ibMenu"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/icon_menu"
+                android:background="@android:color/transparent"
+                android:foreground="?android:selectableItemBackground"
+            />
+
+            <Button
+                android:id="@+id/activity_main_btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/activity_main_ibMenu"
+                android:background="@android:color/transparent"/>
+
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"/>
+
+</FrameLayout>
